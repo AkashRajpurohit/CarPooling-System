@@ -1,0 +1,27 @@
+The travel desicion survey within the City and County of San Francisco as well as the eight surrounding Bay Area counties of Alameda, Contra Costa, San Mateo, Marin, Santa Clara, Napa, Sonoma and Solano. A description of the dataset is as follows:
+    
+RESP-NUM: per capita crime rate by town
+
+Q2: In which Bay Area county do you live? 1=Alameda 2=Contra Costa 3=Marin 4=Napa 5=San Mateo 6=Santa Clara 7=Solano 8=Sonoma 9=San Francisco 0=Do not live in Bay Area  
+
+Q3: Have you gone into San Francisco within the past month (30 days)? 1=Yes 2=No 
+
+TRIPS: Charles River binary/dummy variable (= 1 if tract bounds river; 0 otherwise)
+
+Q4_Total: carbon dioxides concentration (parts per 10 million)
+
+Q4aP: (SF Residents) Where did you go? 1=Work 2=School 3=Shopping 4=Out to eat/Social/Entertainment/Recreation 5=Home 6=Other 7=Don't know / Don't remember 8=Religious/Volunteer/Political
+
+Q18M: 1=Drove my vehicle alone2=Drove my vehicle with others3=Drove car share4=Uber, Lyft, Sidecar or similar transportation network company5=Regular taxi6=Public transportation (Muni, BART, AC Transit, VTA, Amtrak, Paratransit, etc.)7=Private bus or van, including corporate shuttle, campus shuttle or similar (including UCSF, CPMC, Art Institute Leap, and RidePal)8=Bicycle9=Walk 10=Scooter/Motorcycle11=Other (specify)12=Don't know / Don't remember 
+
+Zone: (San Francisco Residents) San Francisco Zone (Based on Zip code)
+
+Q27: Annual Income (1=$35,000 or less 2=$36,000 through $75,000 3=$76,000 through $100,000 4=Over $100,000)
+
+Interview_Day: Date of the interview
+
+Interview_Date: Day of the week on which the interview was conducted (1=Sunday2=Monday3=Tuesday4=Wednesday5=Thursday6=Friday7=Saturday)
+
+Adeco: Age code (used for weighting) 1=18-24 (Inside SF)2=25-34 (Inside SF)3=35-44 (Inside SF)4=45-54 (Inside SF)5=55 and older/Refused (Inside SF)6=18-24 (Outside SF)7=25-34 (Outside SF)8=35-44 (Outside SF)9=45-54 (Outside SF)10=55 and older/Refused (Outside SF)
+
+Weight: Weighting factor applied to record

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="../css/fontawesome.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Profile</title>
+</head>
+<body>
+
+<!--Loading Container Start-->
+<div id="load" class="loading-overlay display-flex flex-column justify-content-center align-items-center">
+    <div class="primary-color font-28 fas fa-spinner fa-spin"></div>
+</div>
+<!--Loading Container End-->
+
+<div class="row h-100">
+    <div class="col-xs-12 col-sm-12">
+
+        <!--Page Title & Icons Start-->
+        <div class="header-icons-container text-center">
+            <a href="index.html">
+                <span class="float-left">
+                    <img src="../icons/back.svg" alt="Back Icon">
+                </span>
+            </a>
+            <span>Profile</span>
+            <a href="#">
+                <span class="float-right menu-open closed">
+                    <img src="../icons/menu.svg" alt="Menu Hamburger Icon">
+                </span>
+            </a>
+        </div>
+        <!--Page Title & Icons End-->
+
+        <div class="rest-container">
+
+            <!--Profile Information Container Start-->
+            <div class="text-center header-icon-logo-margin">
+                <div class="profile-picture-container">
+                    <img src="../images/avatar.svg" alt="Profile Picture">
+                    <span class="fas fa-camera">
+                         <input class="file-prompt" type="file" accept="image/*">
+                    </span>
+                </div>
+                <div class="display-flex flex-column">
+                    <span class="profile-name">Jonathan McBerly</span>
+                    <span class="profile-email font-weight-light">lorem@loremipsum.com</span>
+                </div>
+            </div>
+            <!--Profile Information Container End-->
+
+            <!--Profile Information Fields Container Start-->
+            <div class="sign-up-form-container text-center">
+                <form class="width-100">
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/avatar-light.svg" alt="Avatar Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" autocomplete="off" name="full-name" placeholder="Full Name">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/personal-id.svg" alt="ID Card Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" autocomplete="off" name="id-number" placeholder="Personal Id Number">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/calendar.svg" alt="Calendar Icon" class="profile-calendar-icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" autocomplete="off" name="dob" placeholder="Date of Birth">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/phone.svg" alt="Phone Number">
+                                </span>
+                            </div>
+                            <input class="form-control" type="tel" name="phone" placeholder="Mobile Phone Number">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/envelope.svg" alt="Envelope Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/marker.svg" alt="Marker Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" autocomplete="off" name="country" placeholder="Country">
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/lock.svg" alt="Lock Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="password" name="password" placeholder="New Password">
+                            <div class="input-group-append password-visibility">
+                                <span>
+                                    <img src="../icons/eye.svg" alt="Password Visibility Icon">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <!--Profile Field Container Start-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <img src="../icons/lock.svg" alt="Lock Icon">
+                                </span>
+                            </div>
+                            <input class="form-control" type="password" name="password" placeholder="Confirm Password">
+                            <div class="input-group-append password-visibility">
+                                <span>
+                                    <img src="../icons/eye.svg" alt="Password Visibility Icon">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Profile Field Container End-->
+
+                    <div class="form-submit-button">
+                        <a href="index.html" class="btn btn-dark text-uppercase ">Save <span class="far fa-save margin-left-10"></span></a>
+                    </div>
+                </form>
+            </div>
+            <!--Profile Information Fields Container End-->
+
+        </div>
+    </div>
+
+    <!--Terms And Conditions Agreement Container Start-->
+    <div class="col-xs-12 col-sm-12 text-center sms-rate-text font-roboto flex-end margin-bottom-30">
+        <div class="container-sms-rate-text width-100 font-11">
+            <span class="light-gray font-weight-light">By signing up you have agreed to our </span>
+            <br/>
+            <a href="#" class="dark-link">
+                <span class="font-weight-light">Terms of Use & Privacy Policy</span>
+            </a>
+        </div>
+    </div>
+    <!--Terms And Conditions Agreement Container End-->
+
+    <!--Main Menu Start-->
+    <div class="main-menu hidden-soft">
+        <div class="mini-profile-info">
+            <div class="menu-close">
+                <span class="float-right">
+                    <img src="../icons/close.svg" alt="Close Icon">
+                </span>
+            </div>
+            <div class="profile-picture text-center">
+                <img src="../images/profile-3.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <div class="profile-name text-center">Jonathan McBerly</div>
+                <div class="profile-email text-center">lorem@loremipsum.com</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="all-menu-items">
+                <a class="menu-item" href="index.html">
+                    <div>
+                         <span class="menu-item-icon menu-dark">
+                            <img src="../icons/home.svg" alt="Home Icon">
+                        </span>
+                        <span class="menu-item-icon menu-light">
+                            <img src="../icons/home-light.svg" alt="Home Lighter Icon">
+                        </span>
+                        <span class="menu-item-title">Home</span>
+                        <span class="menu-item-click fas fa-arrow-right"></span>
+                    </div>
+                </a>
+                <a class="menu-item" href="profile.html">
+                    <span class="menu-item-icon menu-dark profile">
+                        <img src="../icons/avatar-dark.svg" alt="Avatar Darker Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light profile">
+                        <img src="../icons/avatar.svg" alt="Avatar Darker Icon">
+                    </span>
+                    <span class="menu-item-title profile">Profile</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a class="menu-item" href="wallet.html">
+                    <span class="menu-item-icon menu-dark">
+                            <img src="../icons/my-wallet.svg" alt="Wallet Icon">
+                        </span>
+                    <span class="menu-item-icon menu-light">
+                            <img src="../icons/my-wallet-light.svg" alt="Wallet Icon">
+                    </span>
+                    <span class="menu-item-title">My Wallet</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a class="menu-item" href="driver-registration.html">
+                    <span class="menu-item-icon menu-dark">
+                            <img src="../icons/driver-registration-dark.svg" alt="Driver Registration Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light">
+                            <img src="../icons/driver-registration.svg" alt="Driver Registration Icon">
+                    </span>
+                    <span class="menu-item-title">Driver Registration</span>
+                    <span class="menu-item-click fas fa-check green-status"></span>
+                </a>
+                <a class="menu-item position-relative" href="notifications.html">
+                     <span class="menu-item-icon menu-dark">
+                            <img src="../icons/notification.svg" alt="Notification Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light">
+                            <img src="../icons/notification-light.svg" alt="Notification Icon">
+                    </span>
+                    <span class="menu-item-title">Notifications</span>
+                    <span class="notification-num">3</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a class="menu-item" href="add-new-car.html">
+                    <span class="menu-item-icon fas fa-car"></span>
+                    <span class="menu-item-title">Car Registration</span>
+                    <span class="menu-item-click fas fa-check green-status"></span>
+                </a>
+                <a class="menu-item" href="support.html">
+                    <span class="menu-item-icon menu-dark support">
+                        <img src="../icons/support.svg" alt="Support Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light support">
+                        <img src="../icons/support-light.svg" alt="Support Lighter Icon">
+                    </span>
+                    <span class="menu-item-title">Online Support</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a href="loading-logo.html" class="menu-item margin-top-auto">
+                    <span class="menu-item-icon menu-dark logout">
+                        <img src="../icons/logout.svg" alt="Logout Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light logout">
+                        <img src="../icons/logout-light.svg" alt="Logout Icon">
+                    </span>
+                    <span class="menu-item-title logout">Log out</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Main Menu End-->
+
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

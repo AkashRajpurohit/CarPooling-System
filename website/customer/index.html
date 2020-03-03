@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from templates-preview.com/gitex/customer/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Sep 2019 09:17:54 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="../css/fontawesome.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Go Ride</title>
+</head>
+<body>
+
+<!--Loading Container Start-->
+<div id="load" class="loading-overlay display-flex flex-column justify-content-center align-items-center">
+    <div class="primary-color font-28 fas fa-spinner fa-spin"></div>
+</div>
+<!--Loading Container End-->
+
+
+<div class="row h-100">
+    <div class="col-xs-12 col-sm-12 remaining-height">
+
+        <!--Page Title & Icons Start-->
+        <div class="header-icons-container position-relative text-center">
+            <span class="float-left back-to-map hidden">
+                <img src="../icons/back.svg" alt="Back Icon">
+            </span>
+            <span class="title">Find a Ride</span>
+            <a href="#">
+                <span class="float-right menu-open closed">
+                    <img src="../icons/menu.svg" alt="Menu Hamburger Icon">
+                </span>
+            </a>
+        </div>
+        <!--Page Title & Icons End-->
+
+        <div class="hidden">
+            <div class="margin-top-10 height-auto row" id="origin-input-container">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="w-100 map-input-container map-input-container-top" style="margin: 5px auto; margin-top:30px;">
+                        <span class="fas fa-location-arrow location-icon-rotate map-input-icon"></span>
+                        <div class="map-input display-flex">
+                            <input id="origin-input" class="controls flex-1" type="text"
+                                placeholder="Enter an origin location">
+                            <span class="mic"><img src="../icons/microphone.svg" alt="Microphone Icon"></span>
+                            <span class="remove">
+                                <img src="../icons/cross-light.svg" alt="Remove Icon Light Color">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="w-100 map-input-container map-input-container-bottom" style="margin: 10px auto;margin-top:2px;">
+                        <span class="map-input-icon"><img src="../icons/circle.svg"  alt="Current Location Icon"></span>
+                        <div class="map-input display-flex">
+                            <input id="destination-input" class="controls flex-1" type="text"
+                                placeholder="Enter a destination location">
+                            <span class="mic"><img src="../icons/microphone.svg" alt="Microphone Icon"></span>
+                            <span class="remove">
+                                <img src="../icons/cross-light.svg"  alt="Remove Icon Light Color">
+                            </span>
+                        </div>
+                        <span class="dotted-line-index"></span>
+                    </div>
+                   
+                    <form id="customer-form">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Departure date:</label>
+                            <input
+                            type="date"
+                            name="bday"
+                            max="3000-12-31"
+                            min="1000-01-01"
+                            class="form-control"
+                            id="datefield"
+                            />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Hour:</label>
+                            <select class="form-control" id="hrs" >
+                                <option>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Minutes:</label>
+                            <select class="form-control" id="mins" >
+                                <option>00</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>No. of Seats</label>
+                            <select class="form-control" id="seats" >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+						</div>    
+                    </div>
+                              
+                    <div class="w-75 request-ride-btn" style="margin:10px auto;">
+                        <button type="submit" class="btn btn-primary">Request a Ride</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <!--Google Maps Start-->
+        <div id="map" class="h-100"></div>
+        <!--Google Maps End-->
+        <div class="container row justify-content-center" >
+            <div class="col-3"></div>
+            <div id="rideCards" class="col-md-6"></div>
+
+        </div>
+        </div>
+
+        <!-- <div class="not-map"> -->
+
+            <!-- Request Ride Button Container Start-->
+            <!-- <div class="request-ride-btn hidden">
+                <button type="button" class="btn btn-primary">Request a Ride</button>
+            </div> -->
+            <!--Request Ride Button Container End -->
+
+            <!--Choose a Car Container Start-->
+            <!-- <div class="ride-options-bottom hidden">
+                <div class="cars-options">
+                    <div class="car-option" data-about-target-id="about-section-1">
+                        <img src="../icons/audi.svg" alt="Car Option 1">
+                    </div>
+                    <div class="car-option active" data-about-target-id="about-section-2">
+                        <img src="../icons/limusine.svg" alt="Car Option 2">
+                    </div>
+                    <div class="car-option" data-about-target-id="about-section-3">
+                        <img src="../icons/minivan.svg" alt="Car Option 3">
+                    </div>
+                </div>
+                <div class="about-section">
+                    <div class="about-section-1 hidden">
+                        <div class="about-section-title">
+                            Economy Ride: <strong>$30.00</strong> / 6.85 km /
+                            <span class="black-text">3 Minutes</span>
+                        </div>
+                        <div class="about-section-more">
+                            NOTE: This is an approximate estimate. Actual cost may vary according
+                            to the traffic.
+                        </div>
+                    </div>
+                    <div class="about-section-2">
+                        <div class="about-section-title">
+                            <div class="about-section-title">
+                                Limo Ride: <strong>$50.00</strong> / 6.85 km /
+                                <span class="black-text">7 Minutes</span>
+                            </div>
+                        </div>
+                        <div class="about-section-more">
+                            NOTE: This is an approximate estimate. Actual cost may vary according
+                            to the traffic.
+                        </div>
+                    </div>
+                    <div class="about-section-3 hidden">
+                        <div class="about-section-title">
+                            <div class="about-section-title">
+                                Super Ride: <strong>$100.00</strong> / 6.85 km /
+                                <span class="black-text">10 Minutes</span>
+                            </div>
+                        </div>
+                        <div class="about-section-more">
+                            NOTE: This is an approximate estimate. Actual cost may vary according
+                            to the traffic.
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-options">
+                    <div class="send-wishes-container">
+                        <div class="float-left wishes">
+                            <img src="../icons/wishes.svg" class="h-100"  alt="Wishes Icon">
+                        </div>
+                        <div class="payment-option-content">
+                            Wishes
+                            <span class="payment-options-more">Write your wishes to driver</span>
+                        </div>
+                    </div>
+                    <div class="default-payment-method-container display-flex">
+                        <div class="float-left wishes">
+                            <img src="../icons/cash.svg" alt="Cash Icon" class="h-100">
+                        </div>
+                        <div class="payment-option-content">
+                            Cash
+                            <span class="payment-options-more">Default Payment Method</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirm-ride-btn">
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div> -->
+            <!--Choose a Car Container End-->
+
+            <!--Wish Container Start-->
+            <div class="wish-container hidden">
+                <div class="close-wish">
+                        <span class="float-right">
+                            <img src="../icons/close.svg" alt="Close Icon">
+                        </span>
+                        <span class="clearfix"></span>
+                </div>
+                <div class="wish-content-intro-container">
+                    <span class="write-wishes-text">Write Wishes To Driver</span>
+                    <span class="float-right"><img src="../icons/angle-right.svg" alt="Angle Right Icon"></span>
+                </div>
+                <div class="font-weight-light wishes-main-text">
+                    <p>
+                        By Clicking on the link above, you can write your comments or wishes to the driver.
+                    </p>
+                    <p>
+                        Please write a polite message and kindly state your wishes.
+                        Make sure that your wishes will not make the driver uncomfortable.
+                        Enjoy your ride!
+                    </p>
+                </div>
+                <div class="enter-wish hidden">
+                    <textarea class="width-100 height-100 font-weight-light" placeholder="Please enter your wishes here..."></textarea>
+                </div>
+                <div class="send-wish-btn hidden">
+                    <button type="button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+            <!--Wish Container End-->
+
+            <!--Payment Options Container Start-->
+            <div class="payment-options-container hidden">
+                <div class="payment-ready-btn">
+                     <span class="text-uppercase float-right ready">
+                         Ready
+                     <img class="hidden" src="../icons/close.svg" alt="Close Icon"></span>
+                </div>
+                <div class="payment-options-intro-container">
+                    <span class="payment-options-text"><span class="fas fa-dollar-sign"></span> Payment By Cash</span>
+                    <span class="fas fa-chevron-down float-right"></span>
+                </div>
+                <div>
+                    <ul class="payment-option-list hidden">
+                        <li>
+                            <span class="fas fa-dollar-sign"></span> Payment By Cash
+                            <span class="float-right check">
+                                <img src="../icons/check.svg"  alt="Check Icon">
+                            </span>
+                        </li>
+                        <li>
+                            <span class="fab fa-cc-visa"></span> Credit Card
+                            <span class="float-right hidden check">
+                                <img src="../icons/check.svg"  alt="Check Icon">
+                            </span>
+                        </li>
+                        <li>
+                            <span class="paypal-icon"><img src="../icons/paypal.svg"  alt="Paypal Icon"></span> PayPal
+                            <span class="float-right hidden check">
+                                <img src="../icons/check.svg"  alt="Check Icon">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="add-new-card-container">
+                    <button type="button" class="btn btn-dark">Add New Credit Card <img class="plus-icon" src="../icons/plus.svg" alt="Add Icon"></button>
+                </div>
+                <div class="payment-options-main-text">
+                    Paying by card is fast and convenient option. Click the button to
+                    add a new card. The amount will be charged after the trip.
+                </div>
+            </div>
+            <!--Payment Options Container End-->
+
+            <!--Tap on Car Red Text Start-->
+            <div class="tap-on-car hidden">
+                <span>Tap on the car of your choice</span>
+            </div>
+            <!--Tap on Car Red Text End-->
+
+            <!--Tapped Car Information Container Start-->
+            <div class="tapped-car-info hidden disabled">
+                <div class="tapped-car-container">
+
+                    <!--Chosen Car Information Container Start-->
+                    <div class="tapped-car-info-container">
+                        <div class="tapped-car-info-header-icons text-center">
+                            <span class="slide-up">
+                                <img src="../icons/up-arrow.svg" alt="Up Arrow Icon">
+                            </span>
+                            <span class="float-right close">
+                                <img src="../icons/close.svg" alt="Close Icon">
+                            </span>
+                        </div>
+                        <div class="rider-info">
+                            <div class="float-left">
+                                <span>Giordano Bruno</span>
+                                <div class="font-14 rating">
+                                    <span class="fas fa-star text-white font-weight-light"></span>
+                                    <span class="fas fa-star text-white font-weight-light"></span>
+                                    <span class="fas fa-star text-white font-weight-light"></span>
+                                    <span class="fas fa-star text-white font-weight-light"></span>
+                                    <span class="fas fa-star text-white font-weight-light"></span>
+                                </div>
+                            </div>
+                            <div class="float-right profile-picture">
+                                <img src="../images/profile-1.png" alt="Profile Picture">
+                            </div>
+                        </div>
+                        <div class="margin-top-25">
+                            <img src="../icons/mercedes.svg" alt="Mercedes Car" class="img-responsive">
+                        </div>
+                        <div class="requested-car-info">
+                            <div class="float-left font-weight-light">
+                                <div>Mercedes-Benz</div>
+                                <div>GL-278-LG</div>
+                            </div>
+                            <div class="float-right request-btn">
+                                <button type="button" class="btn btn-transparent">Request</button>
+                            </div>
+                            <div class="float-right ride-status hidden">
+                                <span class="text-uppercase pending-request float-right font-13"><span class="pending-spinner fas fa-spinner fa-spin primary-color font-13"></span> Pending</span>
+                                <span class="text-uppercase just-approved float-right font-13 hidden">Approved</span>
+                                <span class="miles-till-arrival hidden">2.850</span>
+                                <span class="text-uppercase on-the-way float-right font-13 hidden">on the way</span>
+                                <div>
+                                    <a href="chat.html" class="btn pending-icon message"><span class="fas fa-comments"></span></a>
+                                    <a class="btn pending-icon call"><span class="fas fa-phone"></span></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!--Chosen Car Information Container End-->
+
+                    <!--More Information About Chosen Car Container Start-->
+                    <div class="tapped-car-more-info">
+                        <button type="button" class="cancel-trip btn btn-transparent text-uppercase">Cancel Trip</button>
+                        <div class="more-info-container">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum rhoncus est pellentesque elit.
+                            </p>
+                            <p>
+                                Nisi scelerisque eu ultrices vitae auctor eu. Felis donec et odio pellentesque diam volutpat commodo sed egestas. Sit amet nisl suscipit adipiscing bibendum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                    <!--More Information About Chosen Car Container End-->
+
+                </div>
+            </div>
+            <!--Tapped Car Information Container End-->
+
+            <!--Submit Review Container Start-->
+            <div class="submit-review hidden">
+                <div class="text-center driver-info">
+                    <img class="review-profile" src="../images/profile-1.png"  alt="Driver Picture">
+                    <div class="float-right close-review">
+                        <img src="../icons/close.svg" alt="Close Icon">
+                    </div>
+                    <div class="driver-name">Giordano Bruno</div>
+                    <div class="driver-stars rating">
+                        <span class="fas fa-star text-white font-weight-light"></span>
+                        <span class="fas fa-star text-white font-weight-light"></span>
+                        <span class="fas fa-star text-white font-weight-light"></span>
+                        <span class="fas fa-star text-white font-weight-light"></span>
+                        <span class="fas fa-star text-white font-weight-light"></span>
+                    </div>
+                </div>
+                <div class="text-center trip-desc-info">
+                    <div class="trip-desc-question">How Was Your Trip ?</div>
+                    <div class="please-rate">Please rate, your feedback will help improve driving experience.</div>
+                </div>
+                <div class="comment-info">
+                    <span class="comment-label"> * </span> Comments
+                    <textarea class="w-100"></textarea>
+                    <button class="btn btn-primary text-uppercase">Submit Review</button>
+                </div>
+            </div>
+            <!--Submit Review Container End-->
+        </div>
+    </div>
+
+    <!--Main Menu Start-->
+    <div class="main-menu hidden-soft">
+        <div class="mini-profile-info">
+            <div class="menu-close">
+                <span class="float-right">
+                    <img src="../icons/close.svg" alt="Close Icon">
+                </span>
+            </div>
+            <div class="profile-picture text-center">
+                <img src="../images/profile-1.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <div class="profile-name text-center">Nata Vacheishvili</div>
+                <div class="profile-email text-center">nata_vacheishvili@gurucar.com</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="all-menu-items">
+                <a class="menu-item" href="index.html">
+                    <div>
+                        <span class="menu-item-icon menu-dark">
+                            <img src="../icons/home.svg" alt="Home Icon">
+                        </span>
+                        <span class="menu-item-icon menu-light">
+                            <img src="../icons/home-light.svg" alt="Home Lighter Icon">
+                        </span>
+                        <span class="menu-item-title">Home</span>
+                        <span class="menu-item-click fas fa-arrow-right"></span>
+                    </div>
+                </a>
+                <!-- <a class="menu-item" href="profile.html">
+                    <span class="menu-item-icon menu-dark profile">
+                        <img src="../icons/avatar-dark.svg" alt="Avatar Darker Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light profile">
+                        <img src="../icons/avatar.svg" alt="Avatar Darker Icon">
+                    </span>
+                    <span class="menu-item-title profile">Profile</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a> -->
+                <a class="menu-item" href="payment-method.html">
+                    <span class="menu-item-icon far fa-money-bill-alt"></span>
+                    <span class="menu-item-title">Payment Methods</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a class="menu-item" href="history.html">
+                    <span class="menu-item-icon menu-light">
+                        <img src="../icons/history-light.svg" alt="History Icon">
+                    </span>
+                    <span class="menu-item-icon menu-dark">
+                        <img src="../icons/history.svg" alt="History Icon">
+                    </span>
+                    <span class="menu-item-title">History</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <a class="menu-item" href="addresses.html">
+                    <span class="menu-item-icon menu-dark">
+                        <img src="../icons/my-addresses-dark.svg" alt="My Addresses Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light">
+                        <img src="../icons/my-addresses.svg" alt="My Addresses Icon">
+                    </span>
+                    <span class="menu-item-title">My Addresses</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <!-- <a class="menu-item" href="apply-promo.html">
+                    <span class="menu-item-icon far fa-plus-square"></span>
+                    <span class="menu-item-title promo">Apply Promo Code</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a> -->
+                <a class="menu-item" href="settings.html">
+                    <span class="menu-item-icon menu-dark setting">
+                        <img src="../icons/settings.svg" alt="My Settings Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light setting">
+                        <img src="../icons/settings-light.svg" alt="My Settings Icon">
+                    </span>
+                    <span class="menu-item-title">Settings</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+                <!-- <a class="menu-item" href="online-support.html">
+                    <span class="menu-item-icon menu-dark support">
+                        <img src="../icons/support.svg" alt="Support Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light support">
+                        <img src="../icons/support-light.svg" alt="Support Lighter Icon">
+                    </span>
+                    <span class="menu-item-title">Online Support</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a> -->
+                <a href="sign-in.html" class="menu-item margin-top-auto">
+                    <span class="menu-item-icon menu-dark logout">
+                        <img src="../icons/logout.svg" alt="Logout Icon">
+                    </span>
+                    <span class="menu-item-icon menu-light logout">
+                        <img src="../icons/logout-light.svg" alt="Logout Icon">
+                    </span>
+                    <span class="menu-item-title logout">Log out</span>
+                    <span class="menu-item-click fas fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Main Menu End-->
+
+    <!-- Modal Start-->
+    <div class="modal fade" id="searchingModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content search">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <span class="fas fa-spinner fa-spin"></span>
+                        <div class="label-title">Searching Driver...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmwbZFOM6zFZpFMOng9mZMc-UzQtXvsaU&amp;libraries=places&amp;callback=initMap"></script>
+<script src="../api/root.js"></script>
+<script src="../api/getRides.js"></script>
+
+</body>
+
+<!-- Mirrored from templates-preview.com/gitex/customer/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Sep 2019 09:19:19 GMT -->
+</html>

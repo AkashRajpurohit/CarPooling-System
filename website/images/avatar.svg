@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83" height="83" viewBox="0 0 83 83">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_3241" data-name="Path 3241" d="M19.593-7.2h0a4.907,4.907,0,0,0-4.9-4.9A4.906,4.906,0,0,0,9.8-7.2a4.906,4.906,0,0,0,4.9,4.9,4.907,4.907,0,0,0,4.9-4.9Zm4.9,0h0a9.809,9.809,0,0,1-9.8,9.8A9.807,9.807,0,0,1,4.9-7.2,9.807,9.807,0,0,1,14.693-17a9.809,9.809,0,0,1,9.8,9.8ZM4.9,24.635,7.78,12.765C8.555,9.921,9.288,9.94,12.239,9.94h4.912c2.939,0,3.688,0,4.459,2.824l2.881,11.87h4.9L26.335,11.476C24.983,6.52,22.3,5.042,17.151,5.042H12.239c-5.159,0-7.828,1.459-9.184,6.434L0,24.635Z" transform="translate(0 17)" fill="#fff" stroke="#b7b7b7" stroke-width="1" clip-rule="evenodd"/>
+    </clipPath>
+  </defs>
+  <g id="Avatar" transform="translate(-128 -201)">
+    <circle id="Ellipse_40" data-name="Ellipse 40" cx="41.5" cy="41.5" r="41.5" transform="translate(128 201)" fill="#b7b7b7"/>
+    <g id="Group_7010" data-name="Group 7010" transform="translate(155 238.365)" opacity="0.5">
+      <g id="Group_5357" data-name="Group 5357" transform="translate(0 -17)" clip-path="url(#clip-path)">
+        <path id="Path_3240" data-name="Path 3240" d="M-5-22H48.88V44.126H-5Z" transform="translate(-7.246 9.754)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

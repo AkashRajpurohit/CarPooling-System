@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="../css/fontawesome.css" />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
+    <title>Add Route</title>
+  </head>
+  <body>
+    <!--Loading Container Start-->
+    <div
+      id="load"
+      class="loading-overlay display-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="primary-color font-28 fas fa-spinner fa-spin"></div>
+    </div>
+    <!--Loading Container End-->
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 remaining-height">
+        <!--Page Title & Icons Start-->
+        <div class="header-icons-container position-relative text-center">
+          <span class="float-left back-to-map hidden">
+            <img src="../icons/back.svg" alt="Back Icon" />
+          </span>
+          <span class="title">Add Route</span>
+        </div>
+        <!--Page Title & Icons End-->
+      </div>
+    </div>
+
+    <div class="row h-100">
+      <div class="col-xs-6 col-sm-6 remaining-height">
+        <div class="hidden">
+          <div class="margin-top-10 height-auto" id="origin-input-container">
+            <div class="w-100 map-input-container map-input-container-top">
+              <span
+                class="fas fa-location-arrow location-icon-rotate map-input-icon"
+              ></span>
+              <div class="map-input display-flex">
+                <input
+                  id="origin-input"
+                  class="controls flex-1"
+                  type="text"
+                  placeholder="Enter an origin location"
+                />
+                <span class="mic"
+                  ><img src="../icons/microphone.svg" alt="Microphone Icon"
+                /></span>
+                <span class="remove">
+                  <img
+                    src="../icons/cross-light.svg"
+                    alt="Remove Icon Light Color"
+                  />
+                </span>
+              </div>
+            </div>
+            <div class="w-100 map-input-container map-input-container-bottom">
+              <span class="map-input-icon"
+                ><img src="../icons/circle.svg" alt="Current Location Icon"
+              /></span>
+              <div class="map-input display-flex">
+                <input
+                  id="destination-input"
+                  class="controls flex-1"
+                  type="text"
+                  placeholder="Enter a destination location"
+                />
+                <span class="mic"
+                  ><img src="../icons/microphone.svg" alt="Microphone Icon"
+                /></span>
+                <span class="remove">
+                  <img
+                    src="../icons/cross-light.svg"
+                    alt="Remove Icon Light Color"
+                  />
+                </span>
+              </div>
+              <span class="dotted-line-index"></span>
+            </div>
+          </div>
+        </div>
+
+        <!--Google Maps Start-->
+        <div id="map" class="h-30 maps"></div>
+        <!--Google Maps End-->
+      </div>
+      <div class="col-xs-6 col-sm-6 remaining-height">
+        <form id="publishRidesDriver">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputEmail4">Stopover</label>
+              <i
+                class="fa fa-question-circle"
+                aria-hidden="true"
+                data-toggle="popover"
+                title="What's a stopover?
+                A city where you can pick up or drop off co-travellers along the way."
+                data-content="70% of car owners get more co-travellers by adding at least one stopover!"
+              ></i>
+              <input
+                type="text"
+                class="form-control"
+                id="stopover"
+                placeholder="Your arrival point (address, city, station...)"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Departure date:</label>
+              <input
+              id="deptdate"
+                type="date"
+                name="bday"
+                max="3000-12-31"
+                min="1000-01-01"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <label>Hour:</label>
+              <select class="form-control" id="depthr">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Minutes:</label>
+              <select class="form-control" id="deptmin">
+                <option>00</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+                <option>60</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row" id="returnJourney" style="display: none">
+            <div class="form-group col-md-6">
+              <label>Return date:</label>
+              <input
+              id="retdate"
+                type="date"
+                name="bday"
+                max="3000-12-31"
+                min="1000-01-01"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <label>Hour:</label>
+              <select class="form-control" id="rethr">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Minutes:</label>
+              <select class="form-control" id="retmin">
+                <option>00</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+                <option>60</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12 customcheckbox">
+              <div class="form-check" style="padding-left: 0">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="returnJourneySelected"
+                />
+                <label class="form-check-label" for="returnJourneySelected"
+                  >Return Journey</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputCity">Base Price*:</label>
+              <input
+              id="price"
+                type="text"
+                class="form-control"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Choose a green price to increase your chances of getting co-travellers"
+                style="color: green"
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputState">Number of seats</label>
+              <select id="noOfSeat" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option selected>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputZip">Ride Details:</label>
+              <input
+              id="ridedetails"
+                type="text"
+                class="form-control"
+                id="inputZip"
+                placeholder="General Instructions..."
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12 customcheckbox">
+              <div class="form-check" style="padding-left: 0">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="maxSeat"
+                />
+                <label class="form-check-label" for="maxSeat"
+                  >Max. 2 in the back seats (preferred by co-travellers)</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12 customcheckbox">
+              <div class="form-check" style="padding-left: 0">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="save"
+                />
+                <label class="form-check-label" for="save"
+                  >Save this ride details</label
+                >
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Publish Ride</button>
+        </form>
+      </div>
+
+      <!-- Modal Start-->
+      <div
+        class="modal fade"
+        id="searchingModal"
+        tabindex="-1"
+        role="dialog"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content search">
+            <div class="modal-body">
+              <div class="text-center">
+                <span class="fas fa-spinner fa-spin"></span>
+                <div class="label-title">Searching Driver...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal End-->
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../api/publishRides.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmwbZFOM6zFZpFMOng9mZMc-UzQtXvsaU&amp;libraries=places&amp;callback=initMap"></script>
+  </body>
+</html>
