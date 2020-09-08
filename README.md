@@ -12,4 +12,4 @@ The system enables user to offer a ride share to other people who might be going
 
 > I contributed in developing the backend API's in Node.js and MongoDB.
 
-Visit my Blog [Akash Who Codes](https://akashwho.codes)
+[Akash Rajpurohit](https://akashrajpurohit.cf)
